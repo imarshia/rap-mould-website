@@ -23,7 +23,7 @@ SITE = {
     'address': 'Bojnord, North Khorasan, Iran',
     # TODO: replace with your real Cloudflare Turnstile site key
     # (Cloudflare dashboard > Turnstile > Add site). Required for the contact form captcha.
-    'turnstile_site_key': 'YOUR_TURNSTILE_SITE_KEY',
+    'turnstile_site_key': '0x4AAAAAAFNSbJRpnmzxKwTG',
 }
 
 NAV = [
