@@ -176,8 +176,8 @@ def header(active_path):
 </div></div>
 <header class="site-header"><div class="container navbar">
   <a class="brand" href="/" aria-label="R.A.P MOULD home">
-    <span class="brand-mark">RAP</span>
-    <span class="brand-text"><strong>R.A.P MOULD</strong><small>Rahkar Andishan Pars Ghaleb</small></span>
+    <img class="brand-logo" src="/assets/img/logo-blue.svg" alt="R.A.P MOULD" width="105" height="46">
+    <span class="brand-text"><small>Rahkar Andishan Pars Ghaleb</small></span>
   </a>
   <nav aria-label="Primary"><ul class="nav-links">{''.join(links)}</ul></nav>
   <div class="nav-cta">
@@ -193,8 +193,7 @@ def footer():
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand" href="/" aria-label="R.A.P MOULD home">
-        <span class="brand-mark">RAP</span>
-        <span class="brand-text"><strong>R.A.P MOULD</strong><small>Rahkar Andishan Pars Ghaleb</small></span>
+        <img class="brand-logo" src="/assets/img/logo.svg" alt="R.A.P MOULD" width="120" height="53">
       </a>
       <p>Precision mold design and manufacturing, backed by 40+ years of engineering experience and 100+ completed projects.</p>
     </div>
@@ -223,7 +222,7 @@ def footer():
   </div>
   <div class="footer-bottom"><div class="container">
     <span>&copy; 2026 R.A.P MOULD (Rahkar Andishan Pars Ghaleb). All rights reserved.</span>
-    <span>Precision Mold Design &amp; Manufacturing</span>
+    <span class="designed-by">Designed by <a href="https://arshiasdrl.ir" target="_blank" rel="noopener">Arshia</a></span>
   </div></div>
 </div></footer>
 <script src="/assets/js/main.js" defer></script>
@@ -285,9 +284,9 @@ def page_home():
     <a class="btn btn-lg" href="/services/" style="border-color:rgba(255,255,255,.5);color:#fff">Explore Services</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>40+</strong><span>Years of engineering experience</span></div>
-    <div class="hero-stat"><strong>100+</strong><span>Molds &amp; projects delivered</span></div>
-    <div class="hero-stat"><strong>6</strong><span>Core engineering services</span></div>
+    <div class="hero-stat"><strong><span class="count-up" data-count="40">40</span>+</strong><span>Years of engineering experience</span></div>
+    <div class="hero-stat"><strong><span class="count-up" data-count="100">100</span>+</strong><span>Molds &amp; projects delivered</span></div>
+    <div class="hero-stat"><strong><span class="count-up" data-count="6">6</span></strong><span>Core engineering services</span></div>
   </div>
 </div></section>
 
@@ -340,10 +339,10 @@ def page_home():
 
 <section class="stats-band section"><div class="container">
   <div class="grid cols-4">
-    <div class="stat"><strong>40<em>+</em></strong><span>Years of engineering experience</span></div>
-    <div class="stat"><strong>100<em>+</em></strong><span>Projects completed</span></div>
-    <div class="stat"><strong>6</strong><span>Core services</span></div>
-    <div class="stat"><strong>5</strong><span>Specialized machines in-house</span></div>
+    <div class="stat"><strong><span class="count-up" data-count="40">40</span><em>+</em></strong><span>Years of engineering experience</span></div>
+    <div class="stat"><strong><span class="count-up" data-count="100">100</span><em>+</em></strong><span>Projects completed</span></div>
+    <div class="stat"><strong><span class="count-up" data-count="6">6</span></strong><span>Core services</span></div>
+    <div class="stat"><strong><span class="count-up" data-count="5">5</span></strong><span>Specialized machines in-house</span></div>
   </div>
 </div></section>
 

@@ -32,6 +32,73 @@
     });
   });
 
+  /* ---------- Motion ---------- */
+  document.documentElement.classList.add('js');
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Scroll reveal: major blocks fade up, grid children stagger */
+  var revealEls = [];
+  document.querySelectorAll('.section-head, .split > *, .step, .cta-band, .faq, .table-wrap, .photo-slot, .hero-stat, .stat').forEach(function (el) {
+    el.classList.add('reveal');
+    revealEls.push(el);
+  });
+  document.querySelectorAll('.grid').forEach(function (grid) {
+    Array.prototype.forEach.call(grid.children, function (child, i) {
+      child.classList.add('reveal');
+      child.style.setProperty('--rd', Math.min(i, 5) * 80 + 'ms');
+      revealEls.push(child);
+    });
+  });
+
+  if (!reduceMotion && 'IntersectionObserver' in window && revealEls.length) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('visible');
+          ro.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { ro.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* Animated stat counters */
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduceMotion || !('requestAnimationFrame' in window)) { el.textContent = target; return; }
+    var dur = 1400, start = null;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var counters = document.querySelectorAll('.count-up');
+  if ('IntersectionObserver' in window && counters.length) {
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { animateCount(en.target); co.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (el) { co.observe(el); });
+  } else {
+    counters.forEach(animateCount);
+  }
+
+  /* Header shadow on scroll */
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 12);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   /* Contact / RFQ form */
   var form = document.getElementById('contact-form');
   if (!form) return;
@@ -134,4 +201,5 @@
       if (field) field.classList.remove('invalid');
     });
   });
+
 })();
