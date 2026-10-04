@@ -182,7 +182,7 @@ p.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 62ch; }
 .hero-stats { display: flex; gap: 44px; flex-wrap: wrap; }
 .hero-stat strong { display: block; font-size: clamp(2.4rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -.02em; }
 .hero-stat strong em { font-style: normal; font-size: .68em; font-weight: 700; color: #9DB9EC; margin-left: 2px; }
-.hero-stat span { font-size: .88rem; color: #AEC2EC; }
+.hero-stat > span { font-size: .88rem; color: #AEC2EC; }
 
 .page-hero {
   background: linear-gradient(120deg, var(--blue-darker), var(--blue) 85%);
@@ -263,7 +263,7 @@ a.card:hover .card-link svg { transform: translateX(4px); }
 .stats-band .grid { text-align: center; }
 .stat strong { display: block; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; color: #fff; letter-spacing: -.02em; }
 .stat strong em { font-style: normal; color: var(--silver); }
-.stat span { color: var(--silver); font-size: .92rem; }
+.stat > span { color: var(--silver); font-size: .92rem; }
 
 /* ---------- Process timeline ---------- */
 .timeline { position: relative; margin-top: 8px; }
